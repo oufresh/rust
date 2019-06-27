@@ -5,3 +5,6 @@ version = "0.1.0"
 [[bin]]
 name = "hello"
 path = "src/main.rs"
+
+[dependencies]
+rand = "0.6.5"

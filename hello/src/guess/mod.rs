@@ -1,4 +1,5 @@
 use std::io;
+mod guess_game;
 
 pub fn guess_game() {
     println!("----------------------------");
@@ -9,5 +10,11 @@ pub fn guess_game() {
 
     io::stdin().read_line(&mut guess).expect("Error reading line!!");
 
-    println!("You guessed {}", guess);
+    let guess_num: u32 = guess.trim().parse()
+        .expect("Please type a number!");
+
+    println!("You guessed {}", guess_num);
+
+    guess_game::generate_secret();
+    guess_game::compare(&guess_num);
 }
