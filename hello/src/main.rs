@@ -1,7 +1,7 @@
 use std::io;
 mod guess;
 
-fn run_geues_game() {
+fn run_guess_game() {
     println!("Hai scelto guess game!");
     guess::guess_game();
     println!("---------------------------------");
@@ -27,12 +27,11 @@ fn main() {
             exit = true;
         } else {
             match guess.trim() {
-                "1" => run_geues_game(),
+                "1" => run_guess_game(),
                 "2" => println!("premuto 2"),
-                _ => println!("non conosco!")
+                _ => println!("non conosco!"),
             }
         }
-
     }
 
     println!("------------------------------------");

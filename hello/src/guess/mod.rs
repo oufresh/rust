@@ -15,6 +15,12 @@ pub fn guess_game() {
 
     println!("You guessed {}", guess_num);
 
-    guess_game::generate_secret();
-    guess_game::compare(&guess_num);
+    let secret = guess_game::generate_secret();
+    let win = guess_game::compare(&guess_num, &secret);
+
+    if win {
+        println!("YOUWIN :) :)");
+    } else {
+        println!("YOU LOOSE :'(, the secret is {}", secret);
+    }
 }
