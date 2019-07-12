@@ -1,25 +1,11 @@
-
-
-//use rand::prelude::*;
-
-//static mut secret: u32 = 0;
+extern crate rand;
+use rand::{thread_rng, Rng};
 
 pub fn generate_secret() -> u32 {
-    //let mut rng = rand::thread_rng();
-    //println!("char: {}", rand::random::<u32>());
-    let secret: u32 = rand::random::<u32>();
+    let mut rng = thread_rng();
+    //let secret: u32 = rand::random::<u32>();
+    let secret: u32 = rng.gen_range(0, 10);
     return secret;
-    //let mut rng = thread_rng();
-    //let i = rng.
-
-    // a uniformly distributed value between 0 and 1:
-    //let x: f64 = rng.gen();
-
-    // simulate rolling a die:
-    //let roll = rng.gen_range(1, 7);
-    //let secret_number = rng.next_u32();
-    //gen_range(1, 101);
-    //secret = secret_number;
 }
 
 pub fn compare(guess: &u32, secret: &u32) -> bool {

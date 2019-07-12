@@ -1,6 +1,8 @@
 [package]
-name = "hello-world"
+name = "hello"
 version = "0.1.0"
+edition = "2018"
+authors = ["oufresh"]
 
 [[bin]]
 name = "hello"
