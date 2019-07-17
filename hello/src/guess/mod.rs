@@ -18,8 +18,15 @@ pub fn guess_game() {
             .expect("Error reading line!!");
 
         let guess_num: u32 = guess.trim().parse().expect("Please type a number!");
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => {
+                println!("Invalid input number");
+                continue;
+            }
+        };
 
-        println!("You guessed {}", guess_num);
+        println!("You guessed {}", guess);
 
         let win = guess_game::compare(&guess_num, &secret);
 
