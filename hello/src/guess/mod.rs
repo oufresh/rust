@@ -2,25 +2,36 @@ use std::io;
 mod guess_game;
 
 pub fn guess_game() {
-    println!("----------------------------");
-    println!("Guess the number!");
-    println!("Please input your guess.");
-
-    let mut guess = String::new();
-
-    io::stdin().read_line(&mut guess).expect("Error reading line!!");
-
-    let guess_num: u32 = guess.trim().parse()
-        .expect("Please type a number!");
-
-    println!("You guessed {}", guess_num);
-
     let secret = guess_game::generate_secret();
-    let win = guess_game::compare(&guess_num, &secret);
+    println!("----------------------------");
+    println!("Guess the number from 0 to 10!");
+    let mut attempts: u32 = 5;
+    while attempts > 0 {
+        println!("");
+        println!("You have {} attempts", attempts);
+        println!("Please input your guess.");
 
-    if win {
-        println!("YOUWIN :) :)");
-    } else {
-        println!("YOU LOOSE :'(, the secret is {}", secret);
+        let mut guess = String::new();
+
+        io::stdin()
+            .read_line(&mut guess)
+            .expect("Error reading line!!");
+
+        let guess_num: u32 = guess.trim().parse().expect("Please type a number!");
+
+        println!("You guessed {}", guess_num);
+
+        let win = guess_game::compare(&guess_num, &secret);
+
+        match win {
+            guess_game::GuessResult::Greater => println!("TOO SMALL GUESS :( :("),
+            guess_game::GuessResult::Equal => {
+                println!("YOUWIN :) :)");
+                break;
+            }
+            guess_game::GuessResult::Less => println!("TOO BIG GUESS :( :( ")
+        }
+
+        attempts = attempts - 1;
     }
 }
