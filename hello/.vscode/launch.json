@@ -5,42 +5,13 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "lldb",
+            "name": "(Windows) Launch",
+            "type": "cppvsdbg",
             "request": "launch",
-            "name": "Debug executable 'hello'",
-            "cargo": {
-                "args": [
-                    "build",
-                    "--bin=hello",
-                    "--package=hello"
-                ],
-                "filter": {
-                    "name": "hello",
-                    "kind": "bin"
-                }
-            },
+            "program": "${workspaceFolder}/target/debug/hello.exe",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "terminal": "integrated"
-        },
-        {
-            "type": "lldb",
-            "request": "launch",
-            "name": "Debug unit tests in executable 'hello'",
-            "cargo": {
-                "args": [
-                    "test",
-                    "--no-run",
-                    "--bin=hello",
-                    "--package=hello"
-                ],
-                "filter": {
-                    "name": "hello",
-                    "kind": "bin"
-                }
-            },
-            "args": [],
-            "cwd": "${workspaceFolder}"
+            "externalConsole": false
         }
     ]
 }
