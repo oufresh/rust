@@ -12,7 +12,7 @@ pub fn generate_secret() -> u32 {
 pub enum GuessResult {
     Less,
     Equal,
-    Greater
+    Greater,
 }
 
 pub fn compare(guess: &u32, secret: &u32) -> GuessResult {
@@ -21,6 +21,6 @@ pub fn compare(guess: &u32, secret: &u32) -> GuessResult {
     match secret.cmp(guess) {
         Ordering::Less => GuessResult::Less,
         Ordering::Greater => GuessResult::Greater,
-        Ordering::Equal => GuessResult::Equal
+        Ordering::Equal => GuessResult::Equal,
     }
 }

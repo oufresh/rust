@@ -36,7 +36,7 @@ pub fn guess_game() {
                 println!("YOUWIN :) :)");
                 break;
             }
-            guess_game::GuessResult::Less => println!("TOO BIG GUESS :( :( ")
+            guess_game::GuessResult::Less => println!("TOO BIG GUESS :( :( "),
         }
 
         attempts = attempts - 1;
