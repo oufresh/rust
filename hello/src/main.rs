@@ -27,7 +27,8 @@ fn main() {
         println!("Choose an example to run");
         println!("1. guess example");
         println!("2. box memory example");
-        println!("3. Generic and traits");
+        println!("3. Generic");
+        println!("4. Traits");
         println!("q. exit");
 
         let mut guess = String::new();
@@ -39,6 +40,7 @@ fn main() {
                 "1" => run_guess_game(),
                 "2" => println!("premuto 2"),
                 "3" => run_generic_test(),
+                "4" => generic::test_traits(),
                 _ => println!("non conosco!"),
             }
         }

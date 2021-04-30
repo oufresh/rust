@@ -1,4 +1,5 @@
 mod definitions;
+mod traits;
 
 fn largest_i32(list: &[i32]) -> &i32 {
     let mut largest = &list[0];
@@ -36,6 +37,7 @@ fn largest<T>(list: &[T]) -> &T {
 
     largest
 }
+
 ///
 /// Test generic
 ///
@@ -55,4 +57,12 @@ pub fn test_generic() {
     let result = largest_char(&char_list);
     println!("The largest char is {}", result);
     println!("\n");
+}
+
+pub fn test_traits() {
+
+    println!("");
+    println!("Test traits");
+    traits::test_trait_summarize();
+    println!("");
 }
